@@ -798,6 +798,15 @@ button, input, select, textarea {
     font-weight: 600;
 }
 
+.time-slot.success {
+    background: linear-gradient(135deg, #1f8a44, #125e2d) !important;
+    border-color: #2ecc71 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3) !important;
+    animation: pulse-success 2s infinite;
+    pointer-events: none;
+}
+
 .time-slot:disabled {
     background: var(--bg-secondary);
     color: var(--text-muted);

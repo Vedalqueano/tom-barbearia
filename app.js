@@ -540,6 +540,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Efeito Visual de Sucesso no Botão (Dica do Usuário)
         submitBtn.classList.add('btn-success');
         submitBtn.innerHTML = `<span class="btn-icon"><i data-lucide="check-circle-2"></i></span> CONFIRMADO`;
+        
+        // Destaque no Horário Selecionado (Novo pedido)
+        const selectedSlot = timeSlotsGrid.querySelector('.time-slot.selected');
+        if (selectedSlot) {
+            selectedSlot.classList.add('success');
+        }
+
         if(window.lucide) lucide.createIcons();
 
         // Show success toast removido conforme pedido (vibrar/mudar o botão ja basta)
