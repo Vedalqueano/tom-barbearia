@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Botão Condicional (Só mostra Confirmar se estiver Pendente)
             const confirmBtnHTML = isPending 
-                ? `<button class="btn-action btn-confirm" data-id="${ag.id}" title="Confirmar Agendamento" data-name="${ag.name}" data-phone="${ag.phone.replace(/\D/g, '')}" data-time="${ag.time}"><i data-lucide="check"></i></button>`
+                ? `<button class="btn-action btn-confirm" data-id="${ag.id}" title="Confirmar Agendamento" data-name="${ag.name}" data-phone="55${ag.phone.replace(/\D/g, '')}" data-time="${ag.time}"><i data-lucide="check"></i></button>`
                 : '';
 
             card.innerHTML = `
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3 style="margin:0;">${ag.name}</h3>
                         <div class="agenda-actions-sm" style="display:flex; gap:6px;">
                             ${confirmBtnHTML}
-                            <a href="https://api.whatsapp.com/send?phone=${ag.phone.replace(/\D/g, '')}&text=Ol%C3%A1%20${encodeURIComponent(ag.name.split(' ')[0])},%20falando%20da%20Tom%20Barbearia." target="_blank" class="btn-action btn-whatsapp" title="Conversar no WhatsApp">
+                            <a href="https://api.whatsapp.com/send?phone=55${ag.phone.replace(/\D/g, '')}&text=Ol%C3%A1%20${encodeURIComponent(ag.name.split(' ')[0])},%20falando%20da%20Tom%20Barbearia." target="_blank" class="btn-action btn-whatsapp" title="Conversar no WhatsApp">
                                 <i data-lucide="message-circle"></i>
                             </a>
                             <button class="btn-action btn-delete" data-id="${ag.id}" title="Cancelar horário">
