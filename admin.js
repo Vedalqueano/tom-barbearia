@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Botão Condicional (Só mostra Confirmar se estiver Pendente)
             const confirmBtnHTML = isPending 
-                ? `<button class="btn-action btn-confirm" data-id="${ag.id}" title="Confirmar Agendamento" data-name="${ag.name}" data-phone="55${ag.phone.replace(/\D/g, '')}" data-time="${ag.time}"><i data-lucide="check"></i></button>`
+                ? `<button class="btn-action btn-confirm" data-id="${ag.id}" title="Confirmar Agendamento" data-name="${ag.name}" data-phone="55${ag.phone.replace(/\D/g, '')}" data-time="${ag.time}" data-date="${ag.date}"><i data-lucide="check"></i></button>`
                 : '';
 
             card.innerHTML = `
@@ -178,6 +178,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const clientName = btnRef.getAttribute('data-name').split(' ')[0]; // Pega primeiro nome
                 const clientPhone = btnRef.getAttribute('data-phone');
                 const clientTime = btnRef.getAttribute('data-time');
+                const clientDateRaw = btnRef.getAttribute('data-date');
+                
+                // Formata data de YYYY-MM-DD para DD/MM/YYYY
+                const [year, month, day] = clientDateRaw.split('-');
+                const clientDate = `${day}/${month}/${year}`;
 
                 if (confirm('Confirmar este agendamento e avisar o cliente no WhatsApp?')) {
                     try {
@@ -187,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                         
                         // 2. Montar mensagem de Confirmacao Inteligente
-                        const wppMessage = `Olá ${clientName}, tudo bem? Seu agendamento na *Tom Barbearia* para hoje às *${clientTime}* foi *CONFIRMADO*! ✅\n\nTe esperamos lá! 💈`;
+                        const wppMessage = `Olá ${clientName}, tudo bem? Seu agendamento na *Tom Barbearia* para o dia *${clientDate}* às *${clientTime}* foi *CONFIRMADO*! ✅\n\nTe esperamos lá! 💈`;
                         const whatsappURL = `https://wa.me/${clientPhone}?text=${encodeURIComponent(wppMessage)}`;
                         
                         // 3. Abrir web.whatsapp para despachar a confirmacao
