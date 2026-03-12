@@ -737,9 +737,7 @@ button, input, select, textarea {
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 8px;
     margin-top: 8px;
-    max-height: 250px;
-    overflow-y: auto;
-    padding-right: 4px;
+    /* max-height removido para exibir todos os horários por padrão */
 }
 
 .time-slots-grid::-webkit-scrollbar {
@@ -1227,6 +1225,11 @@ button, input, select, textarea {
 
     #nav-menu.open {
         right: 0;
+    }
+
+    /* Hero Mobile Adjustments */
+    .hero-content {
+        margin-top: -12vh; /* Sobe a logo e texto em telas menores para priorizar a dobra superior */
     }
 
     .nav-list {
