@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tom Barbearia – Estilo e confiança desde 2020. Agende seu horário e confira nossos serviços de corte, barba, alisamento e muito mais.">
+    <meta name="keywords" content="barbearia, corte de cabelo, barba, alisamento, progressiva, luzes, botox capilar, agendamento">
+    <title>Tom Barbearia | Estilo e Confiança</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="header">
+        <div class="container header-inner">
+            <!-- Função Secreta de Admin no Duplo Clique -->
+            <a href="#inicio" class="logo-link" ondblclick="window.location.href='admin.html'" title="Tom Barbearia">
+                <img src="assets/logo.png" alt="Tom Barbearia" class="logo" id="logo" style="max-height: 55px; width: auto; object-fit: contain;">
+            </a>
+            <nav id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link active">Início</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#agendamento" class="nav-link">Agendamento</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <!-- Logo Substituindo o Badge 'EST 2020' -->
+            <div class="hero-logo-wrapper" style="display: flex; justify-content: center; width: 100%; margin-bottom: 24px; animation: fadeUp 0.8s ease forwards;">
+                <img src="assets/logo.png" alt="Tom Barbearia Logo" style="max-height: 280px; width: auto; object-fit: contain;">
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="hero-title-line">Estilo e</span>
+                <span class="hero-title-accent">Confiança</span>
+                <span class="hero-title-line">começam aqui</span>
+            </h1>
+            <p class="hero-subtitle">Mais do que um corte, uma experiência. Na Tom Barbearia, cada detalhe é pensado para você sair com o visual perfeito.</p>
+            
+            <div class="hero-actions">
+                <a href="#agendamento" class="btn btn-primary" id="hero-cta">
+                    <span class="btn-icon"><i data-lucide="calendar-clock"></i></span> Agende seu Horário
+                </a>
+                <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVIÇOS ==================== -->
+    <section id="servicos" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nossos Serviços</span>
+                <h2 class="section-title">Tabela de <span class="text-accent">Valores</span></h2>
+                <p class="section-subtitle">Confira todos os nossos serviços e seus valores. Qualidade e profissionalismo garantidos.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Serviço: Corte -->
+                <div class="service-card" data-service="Corte">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Corte</h3>
+                        <p class="service-description">Cortes modernos e personalizados para o seu estilo.</p>
+                        <div class="service-price">R$37</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Corte" data-price="R$37">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Serviço: Barba -->
+                <div class="service-card" data-service="Barba">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Barba</h3>
+                        <p class="service-description">Barba feita na navalha com toalha quente.</p>
+                        <div class="service-price">R$30</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Barba" data-price="R$30">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Serviço: Pézinho -->
+                <div class="service-card" data-service="Pézinho">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Pézinho</h3>
+                        <p class="service-description">Acabamento perfeito na nuca e contornos.</p>
+                        <div class="service-price">R$10</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Pézinho" data-price="R$10">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Serviço: Sobrancelha -->
+                <div class="service-card" data-service="Sobrancelha">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Sobrancelha</h3>
+                        <p class="service-description">Design e limpeza de sobrancelha masculina.</p>
+                        <div class="service-price">R$10</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Sobrancelha" data-price="R$10">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Serviço: Alisamento -->
+                <div class="service-card" data-service="Alisamento">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Alisamento</h3>
+                        <p class="service-description">Alisamento profissional para todos os tipos de cabelo.</p>
+                        <div class="service-price">A partir de R$25</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Alisamento" data-price="A partir de R$25">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Serviço: Progressiva -->
+                <div class="service-card" data-service="Progressiva">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Progressiva</h3>
+                        <p class="service-description">Progressiva capilar com produtos de qualidade.</p>
+                        <div class="service-price">A partir de R$60</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Progressiva" data-price="A partir de R$60">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Serviço: Luzes -->
+                <div class="service-card" data-service="Luzes">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Luzes</h3>
+                        <p class="service-description">Luzes e mechas para visual moderno e estiloso.</p>
+                        <div class="service-price">A partir de R$50</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Luzes" data-price="A partir de R$50">Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Serviço: Botox -->
+                <div class="service-card" data-service="Botox">
+                    <div class="service-card-content">
+                        <h3 class="service-name">Botox Capilar</h3>
+                        <p class="service-description">Tratamento de reconstrução e hidratação profunda.</p>
+                        <div class="service-price">A partir de R$50</div>
+                        <button class="btn btn-small btn-primary select-service" data-service="Botox Capilar" data-price="A partir de R$50">Agendar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AGENDAMENTO ==================== -->
+    <section id="agendamento" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Agende Online</span>
+                <h2 class="section-title">Faça seu <span class="text-accent">Agendamento</span></h2>
+                <p class="section-subtitle">Preencha o formulário abaixo e receba a confirmação diretamente no WhatsApp.</p>
+            </div>
+
+            <div class="booking-wrapper">
+                <div class="booking-info">
+                    <div class="booking-info-card">
+                        <div class="booking-info-icon"><i data-lucide="clock"></i></div>
+                        <h3>Horário de Funcionamento</h3>
+                        <p>Segunda a Sábado<br><strong>08:00 às 20:00</strong></p>
+                    </div>
+                    <div class="booking-info-card">
+                        <div class="booking-info-icon"><i data-lucide="message-circle"></i></div>
+                        <h3>WhatsApp</h3>
+                        <p>Entre em contato<br><strong>(11) 95852-8689</strong></p>
+                    </div>
+                </div>
+
+                <form id="booking-form" class="booking-form" novalidate>
+                    <div class="form-header">
+                        <h3><span class="text-accent"><i data-lucide="file-text"></i></span> Dados do Agendamento</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-name" class="form-label">Nome Completo *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon"><i data-lucide="user"></i></span>
+                            <input type="text" id="client-name" name="name" placeholder="Seu nome completo" required autocomplete="name">
+                        </div>
+                        <span class="form-error" id="name-error">Por favor, informe seu nome</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-phone" class="form-label">Telefone / WhatsApp *</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon"><i data-lucide="smartphone"></i></span>
+                            <input type="tel" id="client-phone" name="phone" placeholder="(00) 00000-0000" required autocomplete="tel">
+                        </div>
+                        <span class="form-error" id="phone-error">Informe um telefone válido</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Serviços Desejados *</label>
+                        <div class="service-chips-grid" id="client-service-grid">
+                            <button type="button" class="service-chip" data-value="Corte">Corte <small>R$37</small></button>
+                            <button type="button" class="service-chip" data-value="Barba">Barba <small>R$30</small></button>
+                            <button type="button" class="service-chip" data-value="Pézinho">Pézinho <small>R$10</small></button>
+                            <button type="button" class="service-chip" data-value="Sobrancelha">Sobrancelha <small>R$10</small></button>
+                            <button type="button" class="service-chip" data-value="Alisamento">Alisamento <small>R$25</small></button>
+                            <button type="button" class="service-chip" data-value="Progressiva">Progressiva <small>R$60</small></button>
+                            <button type="button" class="service-chip" data-value="Luzes">Luzes <small>R$50</small></button>
+                            <button type="button" class="service-chip" data-value="Botox Capilar">Botox Capilar <small>R$50</small></button>
+                        </div>
+                        <input type="hidden" id="client-service" name="service" required>
+                        <span class="form-error" id="service-error">Selecione pelo menos um serviço</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-date" class="form-label">Data Preferida *</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon"><i data-lucide="calendar"></i></span>
+                                <input type="date" id="client-date" name="date" required>
+                            </div>
+                            <span class="form-error" id="date-error">Selecione uma data</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Horários Disponíveis *</label>
+                            <div class="time-slots-grid" id="time-slots-grid">
+                                <!-- Horários gerados por JavaScript dinamicamente dependendo da disponibilidade no DB -->
+                                <div class="time-slot-placeholder">
+                                    <i data-lucide="calendar"></i>
+                                    <span>Selecione uma data para ver os horários</span>
+                                </div>
+                            </div>
+                            <input type="hidden" id="client-time" name="time" required>
+                            <span class="form-error" id="time-error">Selecione um horário</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="client-notes" class="form-label">Observações (opcional)</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <textarea id="client-notes" name="notes" placeholder="Alguma observação adicional?" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full" id="submit-booking">
+                        <span class="btn-icon"><i data-lucide="check"></i></span> Confirmar Agendamento...
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOBRE ==================== -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <img src="assets/images/about.png" alt="Interior da Tom Barbearia">
+                    <div class="about-badge">
+                        <span class="about-badge-number">5+</span>
+                        <span class="about-badge-text">Anos de experiência</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">Sobre Nós</span>
+                    <h2 class="section-title">Conheça a <span class="text-accent">Tom Barbearia</span></h2>
+                    <p class="about-text">
+                        Desde 2020, a <strong>Tom Barbearia</strong> nasceu com o propósito de oferecer muito mais do que um simples corte de cabelo. Aqui, cada cliente é tratado com exclusividade e atenção aos detalhes.
+                    </p>
+                    <p class="about-text">
+                        Nosso ambiente combina o clássico com o moderno, proporcionando uma experiência única de cuidado e estilo masculino. Trabalhamos com os melhores produtos do mercado para garantir resultados impecáveis.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Clientes atendidos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Serviços disponíveis</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5★</span>
+                            <span class="stat-label">Avaliação média</span>
+                        </div>
+                    </div>
+                    <a href="#agendamento" class="btn btn-primary">
+                        <span class="btn-icon"><i data-lucide="calendar-clock"></i></span> Agende Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTATO / FOOTER ==================== -->
+    <footer id="contato" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Tom Barbearia" class="footer-logo">
+                    <p class="footer-tagline">Estilo e confiança desde 2020. Seu visual, nossa prioridade.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="WhatsApp" title="WhatsApp">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#agendamento">Agendamento</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Serviços</h4>
+                    <ul>
+                        <li><a href="#servicos">Corte</a></li>
+                        <li><a href="#servicos">Barba</a></li>
+                        <li><a href="#servicos">Progressiva</a></li>
+                        <li><a href="#servicos">Luzes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contato</h4>
+                    <p>📍 Endereço da barbearia</p>
+                    <p>📱 (11) 95852-8689</p>
+                    <p>🕐 Seg – Sáb: 08h – 20h</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tom Barbearia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511958528689" class="whatsapp-float" id="whatsapp-float" target="_blank" aria-label="Contato via WhatsApp" title="Fale conosco no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <span class="toast-icon"><i data-lucide="check-circle" style="color: #2ecc71;"></i></span>
+            <span class="toast-message" id="toast-message">Mensagem enviada com sucesso!</span>
+    </div>
+
+    <!-- Firebase SDK Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Scripts -->
+    <script src="firebase-init.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

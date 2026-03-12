@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Barbeiro | Tom Barbearia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: var(--bg-secondary); }
+        .admin-header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-card);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .admin-header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .admin-title {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 16px;
+            margin: 32px 0;
+            align-items: center;
+        }
+        .filters .input-wrapper {
+            max-width: 250px;
+        }
+
+        /* Tabela Mágica em Cards */
+        .agenda-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .agenda-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 100px 1fr 150px;
+            align-items: center;
+            gap: 24px;
+            transition: var(--transition);
+        }
+        .agenda-card:hover {
+            border-color: var(--gold);
+            transform: translateX(4px);
+        }
+        .agenda-time {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 700;
+            text-align: center;
+            border-right: 1px dashed var(--border-color);
+            padding-right: 20px;
+        }
+        .agenda-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .agenda-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+        .agenda-actions {
+            display: flex;
+            gap: 8px;
+            justify-content:flex-end;
+        }
+        
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            color: white;
+        }
+        .btn-action:active { transform: scale(0.9); }
+        .btn-whatsapp { background: #25d366; }
+        .btn-whatsapp:hover { background: #1ebd5a; }
+        .btn-delete { background: #e74c3c; }
+        .btn-delete:hover { background: #c0392b; }
+        .btn-confirm { background: #2ecc71; }
+        .btn-confirm:hover { background: #27ae60; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .badge-pendente {
+            background: rgba(241, 196, 15, 0.2);
+            color: #f1c40f;
+            border: 1px solid rgba(241, 196, 15, 0.4);
+        }
+        .badge-confirmado {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.4);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px dashed var(--border-color);
+        }
+        .empty-state .lucide {
+            font-size: 3rem;
+            opacity: 0.5;
+            margin-bottom: 16px;
+        }
+
+        /* Tela de Login Simples */
+        #login-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-box h2 {
+            font-family: var(--font-heading);
+            color: var(--gold);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .agenda-card {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                text-align: center;
+            }
+            .agenda-time {
+                border-right: none;
+                border-bottom: 1px dashed var(--border-color);
+                padding-right: 0;
+                padding-bottom: 16px;
+            }
+            .agenda-info p {
+                justify-content: center;
+            }
+            .agenda-actions {
+                justify-content: center;
+                margin-top: 10px;
+            }
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .filters .input-wrapper {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Protection Overlay -->
+    <div id="login-overlay">
+        <div class="login-box">
+            <img src="assets/logo.png" alt="Tom Barbearia" style="height: 60px; margin: 0 auto 20px;">
+            <h2>Acesso Restrito</h2>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <span class="input-icon"><i data-lucide="key"></i></span>
+                    <input type="password" id="admin-pass" placeholder="Senha Mestra" autocomplete="off">
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full" id="btn-login" style="margin-top:20px">Entrar</button>
+            <p id="login-error" style="color:#e74c3c; margin-top:12px; font-size: 0.85rem; display:none;">Senha incorreta. (Dica: tente 'Tom.2026')</p>
+        </div>
+    </div>
+
+    <!-- Interface do Painel -->
+    <header class="admin-header">
+        <div class="container admin-header-inner">
+            <h1 class="admin-title"><i data-lucide="scissors"></i> Gestão de Agenda</h1>
+            <a href="index.html" class="btn btn-outline btn-small" style="font-size:0.8rem">
+                <i data-lucide="external-link"></i> Ver Site Público
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Controls & Filters -->
+        <div class="filters">
+            <div class="input-wrapper">
+                <span class="input-icon"><i data-lucide="calendar-search"></i></span>
+                <input type="date" id="filter-date">
+            </div>
+            <div style="flex:1"></div>
+            <div style="text-align: right;">
+                <h3 style="font-family: var(--font-heading); color: var(--gold)" id="stats-total">0</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase">Agendamentos hoje</span>
+            </div>
+        </div>
+
+        <!-- Realtime List -->
+        <div class="agenda-grid" id="agenda-lista">
+            <!-- Loading state -->
+            <div class="empty-state">
+                <i data-lucide="loader-2" class="lucide-spin"></i>
+                <p>Carregando banco de dados...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal Delete Confirmation (simples via JS Confirm, mas vamos deixar mais nativo depois) -->
+    <!-- Firebase SDK Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Scripts -->
+    <script src="firebase-init.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
