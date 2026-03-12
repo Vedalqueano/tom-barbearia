@@ -545,25 +545,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show success toast instead of redirect
         showToast('✅ Seu agendamento foi enviado para aprovação!');
 
-        // Reset form and restore button after delay, then scroll page to top (#inicio)
-        setTimeout(() => {
-            bookingForm.reset();
-            
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('btn-success');
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.style.opacity = '1';
-            
-            // Re-render Lucide icons se aplicavel
-            if(window.lucide) lucide.createIcons();
-            
-            // Re-fetch slots to hide the unselected ones
-            dateInput.dispatchEvent(new Event('change'));
-
-            // O redirecionamento pedido pelo usuário p/ topo da página após F5 (Lógica)
-            window.location.href = '#inicio';
-
-        }, 2500);
+        // Mantemos o formulário preenchido e o botão em estado de sucesso conforme pedido.
+        // Apenas recarregamos os ícones para garantir o brilho do check novo.
+        if(window.lucide) lucide.createIcons();
 
         } catch (error) {
             console.error("Erro ao agendar: ", error);

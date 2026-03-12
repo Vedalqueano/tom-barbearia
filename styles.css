@@ -355,6 +355,19 @@ button, input, select, textarea {
     color: white !important;
     box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4) !important;
     pointer-events: none; /* Previne duplo clique */
+    animation: pulse-success 2s infinite;
+}
+
+@keyframes pulse-success {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(46, 204, 113, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    }
 }
 
 .btn-outline {
