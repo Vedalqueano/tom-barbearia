@@ -349,6 +349,14 @@ button, input, select, textarea {
     transform: translateY(0) scale(0.97);
 }
 
+.btn-success {
+    background: linear-gradient(135deg, #1f8a44, #125e2d) !important;
+    border-color: #2ecc71 !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4) !important;
+    pointer-events: none; /* Previne duplo clique */
+}
+
 .btn-outline {
     background: transparent;
     color: var(--text-primary);

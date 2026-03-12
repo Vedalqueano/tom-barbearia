@@ -534,9 +534,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         message += `\n_Aguardo confirmação!_ 💈`;
-
         // Encoded message string just in case, but no redirect happens
         const encodedMessage = encodeURIComponent(message);
+        
+        // Efeito Visual de Sucesso no Botão (Dica do Usuário)
+        submitBtn.classList.add('btn-success');
+        submitBtn.innerHTML = `<span class="btn-icon"><i data-lucide="check-circle-2"></i></span> CONFIRMADO`;
+        if(window.lucide) lucide.createIcons();
+
         // Show success toast instead of redirect
         showToast('✅ Seu agendamento foi enviado para aprovação!');
 
@@ -545,6 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
             bookingForm.reset();
             
             submitBtn.disabled = false;
+            submitBtn.classList.remove('btn-success');
             submitBtn.innerHTML = originalBtnText;
             submitBtn.style.opacity = '1';
             
