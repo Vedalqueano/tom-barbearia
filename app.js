@@ -537,16 +537,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Encoded message string just in case, but no redirect happens
         const encodedMessage = encodeURIComponent(message);
-
         // Show success toast instead of redirect
         showToast('✅ Seu agendamento foi enviado para aprovação!');
 
-        // Reset form and restore button after delay
+        // Reset form and restore button after delay, then scroll page to top (#inicio)
         setTimeout(() => {
             bookingForm.reset();
-            // Restore prefill
-            // if (name) document.getElementById('client-name').value = name;
-            // if (phone) phoneInput.value = phone;
             
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnText;
@@ -558,7 +554,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Re-fetch slots to hide the unselected ones
             dateInput.dispatchEvent(new Event('change'));
 
-        }, 3000);
+            // O redirecionamento pedido pelo usuário p/ topo da página após F5 (Lógica)
+            window.location.href = '#inicio';
+
+        }, 2500);
 
         } catch (error) {
             console.error("Erro ao agendar: ", error);

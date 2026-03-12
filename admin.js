@@ -127,21 +127,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             card.innerHTML = `
                 <div class="agenda-time">${ag.time}</div>
-                <div class="agenda-info">
+                <div class="agenda-info" style="position:relative;">
                     ${statusBadge}
-                    <h3>${ag.name}</h3>
-                    <p><i data-lucide="smartphone"></i> ${ag.phone}</p>
+                    
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 style="margin:0;">${ag.name}</h3>
+                        <div class="agenda-actions-sm" style="display:flex; gap:6px;">
+                            ${confirmBtnHTML}
+                            <a href="https://api.whatsapp.com/send?phone=${ag.phone.replace(/\D/g, '')}&text=Ol%C3%A1%20${encodeURIComponent(ag.name.split(' ')[0])},%20falando%20da%20Tom%20Barbearia." target="_blank" class="btn-action btn-whatsapp" title="Conversar no WhatsApp">
+                                <i data-lucide="message-circle"></i>
+                            </a>
+                            <button class="btn-action btn-delete" data-id="${ag.id}" title="Cancelar horário">
+                                <i data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p style="margin-top:6px;"><i data-lucide="smartphone"></i> ${ag.phone}</p>
                     <p><i data-lucide="scissors"></i> ${ag.service}</p>
                     ${ag.notes ? `<p style="color:var(--orange)"><i data-lucide="file-text"></i> ${ag.notes}</p>` : ''}
-                </div>
-                <div class="agenda-actions">
-                    ${confirmBtnHTML}
-                    <a href="https://api.whatsapp.com/send?phone=${ag.phone.replace(/\D/g, '')}&text=Ol%C3%A1%20${encodeURIComponent(ag.name.split(' ')[0])},%20falando%20da%20Tom%20Barbearia." target="_blank" class="btn-action btn-whatsapp" title="Conversar no WhatsApp">
-                        <i data-lucide="message-circle"></i>
-                    </a>
-                    <button class="btn-action btn-delete" data-id="${ag.id}" title="Cancelar horário">
-                        <i data-lucide="trash-2"></i>
-                    </button>
                 </div>
             `;
             
