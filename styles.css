@@ -538,16 +538,16 @@ button, input, select, textarea {
    BOOKING / AGENDAMENTO
    ============================================ */
 .booking-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 40px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .booking-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
+    width: 100%;
 }
 
 .booking-info-card {
@@ -556,11 +556,12 @@ button, input, select, textarea {
     border-radius: var(--radius);
     padding: 24px;
     transition: var(--transition);
+    flex: 1; /* Força cada card a tomar 50% do espaço (mesma linha) */
 }
 
 .booking-info-card:hover {
     border-color: var(--gold);
-    transform: translateX(4px);
+    transform: translateY(-4px); /* Pula pra cima no hover, e não de lado */
 }
 
 .booking-info-icon {
