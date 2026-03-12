@@ -178,22 +178,47 @@
 
         @media (max-width: 768px) {
             .agenda-card {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                text-align: center;
+                grid-template-columns: 75px 1fr;
+                gap: 12px;
+                padding: 14px 16px;
+                text-align: left;
+                align-items: start; /* Permite itens alinharem ao topo do cartao */
             }
             .agenda-time {
-                border-right: none;
-                border-bottom: 1px dashed var(--border-color);
-                padding-right: 0;
-                padding-bottom: 16px;
+                border-right: 1px dashed var(--border-color);
+                border-bottom: none;
+                padding-right: 12px;
+                padding-bottom: 0;
+                font-size: 1.4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%; /* Centraliza hora verticalmente */
+            }
+            .agenda-info h3 {
+                font-size: 1.05rem;
+                margin-top: 2px;
             }
             .agenda-info p {
-                justify-content: center;
+                justify-content: flex-start;
+                font-size: 0.8rem;
+                margin-bottom: 2px;
+            }
+            .badge {
+                font-size: 0.65rem;
+                padding: 3px 6px;
+                margin-bottom: 4px;
             }
             .agenda-actions {
-                justify-content: center;
-                margin-top: 10px;
+                grid-column: 1 / -1; /* Ocupa largura total na quebra */
+                justify-content: flex-end;
+                margin-top: 8px;
+                padding-top: 12px;
+                border-top: 1px solid var(--bg-primary); /* Linha suave separando botões */
+            }
+            .btn-action {
+                width: 38px;
+                height: 38px;
             }
             .filters {
                 flex-direction: column;
