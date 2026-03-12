@@ -542,8 +542,8 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = `<span class="btn-icon"><i data-lucide="check-circle-2"></i></span> CONFIRMADO`;
         if(window.lucide) lucide.createIcons();
 
-        // Show success toast instead of redirect
-        showToast('✅ Seu agendamento foi enviado para aprovação!');
+        // Show success toast removido conforme pedido (vibrar/mudar o botão ja basta)
+        // showToast('✅ Seu agendamento foi enviado para aprovação!');
 
         // Mantemos o formulário preenchido e o botão em estado de sucesso conforme pedido.
         // Apenas recarregamos os ícones para garantir o brilho do check novo.

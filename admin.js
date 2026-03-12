@@ -184,24 +184,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const [year, month, day] = clientDateRaw.split('-');
                 const clientDate = `${day}/${month}/${year}`;
 
-                if (confirm('Confirmar este agendamento e avisar o cliente no WhatsApp?')) {
-                    try {
-                        // 1. Atualizar banco pro status final
-                        await db.collection("agendamentos").doc(id).update({
-                            status: 'confirmado'
-                        });
-                        
-                        // 2. Montar mensagem de Confirmacao Inteligente
-                        const wppMessage = `Olá ${clientName}, tudo bem? Seu agendamento na *Tom Barbearia* para o dia *${clientDate}* às *${clientTime}* foi *CONFIRMADO*! ✅\n\nTe esperamos lá! 💈`;
-                        const whatsappURL = `https://wa.me/${clientPhone}?text=${encodeURIComponent(wppMessage)}`;
-                        
-                        // 3. Abrir web.whatsapp para despachar a confirmacao
-                        window.open(whatsappURL, '_blank');
+                if (window.lucide) lucide.createIcons();
+                
+                // Processo de confirmação direto sem popup de confirmação
+                try {
+                    // 1. Atualizar banco pro status final
+                    await db.collection("agendamentos").doc(id).update({
+                        status: 'confirmado'
+                    });
+                    
+                    // 2. Montar mensagem de Confirmacao Inteligente
+                    const wppMessage = `Olá ${clientName}, tudo bem? Seu agendamento na *Tom Barbearia* para o dia *${clientDate}* às *${clientTime}* foi *CONFIRMADO*! ✅\n\nTe esperamos lá! 💈`;
+                    const whatsappURL = `https://wa.me/${clientPhone}?text=${encodeURIComponent(wppMessage)}`;
+                    
+                    // 3. Abrir web.whatsapp para despachar a confirmacao
+                    window.open(whatsappURL, '_blank');
 
-                    } catch (error) {
-                        console.error("Erro ao confirmar", error);
-                        alert("Não foi possível confirmar. Tente novamente.");
-                    }
+                } catch (error) {
+                    console.error("Erro ao confirmar", error);
+                    alert("Não foi possível confirmar. Tente novamente.");
                 }
             });
         });
