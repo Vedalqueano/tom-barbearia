@@ -184,21 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const [year, month, day] = clientDateRaw.split('-');
                 const clientDate = `${day}/${month}/${year}`;
 
-                if (window.lucide) lucide.createIcons();
-                
                 // Processo de confirmação direto sem popup de confirmação
                 try {
-                    // 1. Atualizar banco pro status final
-                    await db.collection("agendamentos").doc(id).update({
-                        status: 'confirmado'
-                    });
-                    
-                    // 2. Montar mensagem de Confirmacao Inteligente
+                    // 1. Montar mensagem de Confirmacao Inteligente
                     const wppMessage = `Olá ${clientName}, tudo bem? Seu agendamento na *Tom Barbearia* para o dia *${clientDate}* às *${clientTime}* foi *CONFIRMADO*! ✅\n\nTe esperamos lá! 💈`;
                     const whatsappURL = `https://wa.me/${clientPhone}?text=${encodeURIComponent(wppMessage)}`;
                     
-                    // 3. Abrir web.whatsapp para despachar a confirmacao
+                    // 2. Abrir web.whatsapp para despachar a confirmacao ANTES do await para evitar bloqueio de popup
                     window.open(whatsappURL, '_blank');
+
+                    // 3. Atualizar banco pro status final
+                    await db.collection("agendamentos").doc(id).update({
+                        status: 'confirmado'
+                    });
 
                 } catch (error) {
                     console.error("Erro ao confirmar", error);
